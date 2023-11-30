@@ -1,0 +1,11 @@
+mixin reviewCard(userPhoto,userName, review, star)
+    .reviews__card
+        .reviews__avatar
+            img.reviews__avatar-img(src=`/img/users/${userPhoto}`, alt=userName)
+            h6.reviews__user= userName
+        p.reviews__text= review
+        .reviews__rating
+            each i in [1,2,3,4,5]
+                -let status = (star >= i) ? 'active' : 'inactive'
+                svg.reviews__star(class=`reviews__star--${status}`)
+                    use(xlink:href='/img/icons.svg#icon-star')

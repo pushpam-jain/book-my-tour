@@ -1,0 +1,54 @@
+doctype html
+html
+    head
+        block head
+        meta(charset='UTF-8') 
+        meta(name='viewport', content='width=device-width, initial-scale=1.0') 
+        // - next line is equivalent to what we use .js for variable use -- ${tour}
+        //- title Natours #{tour}
+        - if(title)
+            title= `Natours | ${title}`
+        - else
+            title= `Natours`
+        //- <link rel='stylesheet', href='css/style.css'> normal html practices can also be used   
+        //- '/' before css in href matters as becuase that we know that start from here(root)
+        link(rel='stylesheet', href='/css/style.css')    
+        link(rel='shortcut icon', type='image/png',href='/img/favicon.png')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')    
+
+
+    body 
+        //- h1=tour 
+        //- // h1 Forest Hiker
+        //- //- h1 Forest Hiker
+        //- //- Basically after h1= any javascript object, rules, function can be used
+        //- h2=user.toUpperCase()
+
+        //- //- now we will write unbuffered code using '-' //  Unbuffered code adds nothing to the code output
+        //- - const x = 3;
+        //- h2=2*x
+        //- p This is just some text
+
+
+        // HEADER
+        include _header
+
+
+        // CONTENT
+        //- section.overview 
+        //- main.main
+
+        block content 
+        //- h1 The Parker Tour
+        //- this block content means it is block of main content
+
+
+        // FOOTER
+        include _footer 
+        //- script(src='/js/mapbox.js')
+        //- script(src='/js/login.js')    
+        //- script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js")       // install npm package instead of this
+        script(src='/js/bundle.js')
+
+
+
